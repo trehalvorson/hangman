@@ -1,3 +1,5 @@
+import random
+
 def splice(text, index, new_text): # Replaces the letter at specified index with string new_text
 
    text = text[:index] + new_text + text[index+1:]
@@ -26,9 +28,25 @@ def mistake():
    mistakes += 1
    gallows[int("233344"[mistakes - 1])] = splice(gallows[int("233344"[mistakes - 1])], int("110202"[mistakes - 1]), "O|/\\/\\"[mistakes - 1])
 
-word = input("What word would you like to guesser to pick? ").upper()
-for i in range(33):
-   print("")
+dictionary = ["DICTIONARY", "SKELETON", "PINEAPPLE", "GRAPE", "APPLE", "BANANA", "BLUEBERRY", "ORANGE", "EARTH", "PLANET", "MOON", "STAR", "SUN", "SPACE", "GALAXY", "COMET", "ASTEROID", "METEOR", "OCEAN", "RIVER", "LAKE", "MOUNTAIN", "VALLEY", "FOREST", "DESERT", "ISLAND", "BEACH", "CLIFF", "TREE", "FLOWER", "GRASS", "LEAF", "ROOT", "SEED", "STONE", "ROCK", "CLOUD", "RAIN", "SNOW", "WIND", "STORM", "THUNDER", "LIGHTNING", "FIRE", "WATER", "EARTHQUAKE", "VOLCANO", "RAINBOW", "DOG", "CAT", "HORSE", "COW", "SHEEP", "GOAT", "PIG", "CHICKEN", "EAGLE", "HAWK", "OWL", "RAVEN", "DUCK", "SWAN", "FROG", "SNAKE", "TURTLE", "LIZARD", "FISH", "WHALE", "SHARK", "DOLPHIN", "OCTOPUS", "CRAB", "SPIDER", "BEE", "BUTTERFLY", "ANT", "BEETLE", "PEACH", "PEAR", "CHERRY", "LEMON", "MELON", "MANGO", "BREAD", "CHEESE", "BUTTER", "MILK", "COFFEE", "TEA", "SUGAR", "SALT", "PEPPER", "RICE", "PASTA", "PIZZA", "SOUP", "CAKE", "COOKIE", "SCHOOL", "CLASS", "TEACHER", "STUDENT", "BOOK", "PENCIL", "PAPER", "DESK", "CHAIR", "BOARD", "COMPUTER", "PHONE", "TABLE", "DOOR", "WINDOW", "HOUSE", "ROOM", "KITCHEN", "GARDEN", "BRIDGE", "ROAD", "STREET", "CITY", "TOWN", "COUNTRY", "WORLD", "CAR", "TRUCK", "BUS", "TRAIN", "PLANE", "BOAT", "BIKE", "WHEEL", "ENGINE", "LIGHT", "CLOCK", "WATCH", "KEY", "LOCK", "BAG", "BOX", "BOTTLE", "CUP", "PLATE", "SPOON", "FORK", "KNIFE", "SHIRT", "PANTS", "SHOE", "HAT", "COAT", "RING", "WATCH", "BALL", "GAME", "MUSIC", "SONG", "MOVIE", "STORY", "PICTURE", "COLOR", "SOUND", "WORD", "LETTER", "NUMBER", "QUESTION", "ANSWER", "IDEA", "DREAM", "TIME", "DAY", "NIGHT", "MORNING", "EVENING", "SUMMER", "WINTER", "SPRING", "AUTUMN", "HAPPY", "SAD", "ANGRY", "CALM", "BRAVE", "SMART", "KIND", "STRONG", "FAST", "SLOW", "BIG", "SMALL", "HOT", "COLD", "OLD", "YOUNG", "NEW", "GOOD", "BAD", "FIRST", "LAST", "BEGIN", "END", "OPEN", "CLOSE", "START", "FINISH", "CREATE", "BUILD", "LEARN", "TRANSISTOR", "THINK", "SPEAK", "WRITE", "READ", "PLAY", "MISERY", "I", "A", "INDISTINGUISHABLE", "BEGINNING", "ABOMINABLE" "WORK", "HELP", "MOVE", "RUN", "JUMP", "WALK"]
+
+if input("Do you have two people? Y/N ").upper == "Y":
+
+   word = input("What word would you like to guesser to pick? ").upper()
+   for i in range(32):
+      print("")
+   
+   if word in dictionary:
+
+      print("The word is in the English Dictionary.")
+
+   else:
+
+      print("The word is NOT in the (very small) dictionary that this game has.")
+
+else:
+
+   word = dictionary[random.randint(0, len(dictionary))]
 
 guesses = []
 correct = "_" * len(word)
